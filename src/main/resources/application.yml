@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: users
+  r2dbc:
+    url: ${DATABASE}
+    username: ${USERNAME}
+    password: ${PASSWORD}
+server:
+  port: 8080
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://eureka:8070/eureka
