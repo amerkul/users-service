@@ -5,6 +5,13 @@ spring:
     url: ${DATABASE}
     username: ${USERNAME}
     password: ${PASSWORD}
+  flyway:
+    baseline-on-migrate: true
+    user: ${USERNAME}
+    password: ${PASSWORD}
+    schemas: schema
+    url: ${DATABASE}
+    locations: classpath:sql-scripts
 server:
   port: 8080
 eureka:

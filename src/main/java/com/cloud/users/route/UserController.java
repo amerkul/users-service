@@ -18,7 +18,6 @@ public class UserController {
     @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
     public Flux<User> getAll() {
-        System.out.println("Get method");
         return service.retrieveAll();
     }
 
