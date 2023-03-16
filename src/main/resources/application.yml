@@ -2,7 +2,7 @@ spring:
   application:
     name: users
   r2dbc:
-    url: ${DATABASE}
+    url: r2dbc:${DATABASE}
     username: ${USERNAME}
     password: ${PASSWORD}
   flyway:
@@ -10,8 +10,25 @@ spring:
     user: ${USERNAME}
     password: ${PASSWORD}
     schemas: schema
-    url: ${DATABASE}
+    url: jdbc:${DATABASE}
     locations: classpath:sql-scripts
+  kafka:
+    topic: topic
+    bootstrap-servers: broker:9092
+    consumer:
+      group-id: reactivekafkagroup
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            use:
+              type:
+                headers: false
+            value:
+              default:
+                type: com.cloud.users.domain.User
 server:
   port: 8080
 eureka:
