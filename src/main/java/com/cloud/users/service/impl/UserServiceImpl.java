@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    private UserRepository repository;
+    private final UserRepository repository;
 
     @Override
     public Flux<User> retrieveAll() {
