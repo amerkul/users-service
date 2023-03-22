@@ -14,7 +14,7 @@ spring:
     locations: classpath:sql-scripts
   kafka:
     topic: topic
-    bootstrap-servers: broker:9092
+    bootstrap-servers: ${HOST}:9092
     consumer:
       group-id: reactivekafkagroup
       auto-offset-reset: earliest
